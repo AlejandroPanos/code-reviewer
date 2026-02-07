@@ -2,12 +2,13 @@
 const express = require("express");
 const router = express.Router();
 const reviewsControllers = require("../controllers/reviews");
+const { requireAuth } = require("../middleware/auth");
 
 /* Create routes */
-router.get("/", reviewsControllers.getReviews);
-router.get("/:id", reviewsControllers.getReview);
-router.post("/:id", reviewsControllers.saveReview);
-router.delete("/:id", reviewsControllers.deleteReview);
+router.get("/", requireAuth, reviewsControllers.getReviews);
+router.get("/:id", requireAuth, reviewsControllers.getReview);
+router.post("/:id", requireAuth, reviewsControllers.saveReview);
+router.delete("/:id", requireAuth, reviewsControllers.deleteReview);
 
 /* Create exports */
 module.exports = router;

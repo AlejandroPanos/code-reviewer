@@ -11,6 +11,7 @@ const bodyParser = require("body-parser");
 const aiRoutes = require("./routes/ai");
 const authRoutes = require("./routes/auth");
 const reviewsRoutes = require("./routes/reviews");
+const { checkUser } = require("./middleware/auth");
 const PORT = process.env.PORT;
 const URI = process.env.MONGODB_URI;
 
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 /* Use routes */
+app.use(checkUser);
 app.use("/api/ai", aiRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/reviews", reviewsRoutes);
