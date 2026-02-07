@@ -24,7 +24,7 @@ app.use(cors(corsConfig));
 /* Add parsing middleware */
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
-app.use(cookieParser);
+app.use(cookieParser());
 
 /* Use routes */
 app.use("/api/ai", aiRoutes);
