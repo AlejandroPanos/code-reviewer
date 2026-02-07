@@ -60,7 +60,7 @@ userSchema.statics.register = async function (name, email, password) {
     password,
   });
 
-  return newUser;
+  return this.findById(newUser._id).select("-password");
 };
 
 userSchema.statics.login = async function (email, password) {
