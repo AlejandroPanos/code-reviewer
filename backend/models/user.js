@@ -38,7 +38,7 @@ const userSchema = new Schema(
 );
 
 /* Create methods */
-userSchema.virtuals("gravatarUrl").get(function () {
+userSchema.virtual("gravatarUrl").get(function () {
   const email = this.email.toLowerCase().trim();
   const hash = crypto.createHash("sha256").update(email).digest("hex");
   return `https://www.gravatar.com/avatar/${hash}?d=identicon&s=200`;
