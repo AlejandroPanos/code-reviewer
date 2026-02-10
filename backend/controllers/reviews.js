@@ -27,7 +27,25 @@ exports.getReviews = async (req, res) => {
 
 exports.getReview = async (req, res) => {
   try {
-    res.status(200).json({ msg: "One review from user" });
+    const userId = req.user.id;
+    const reviewId = req.params.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(401).json({ error: "User not found" });
+    }
+
+    const review = await Review.findById(reviewId);
+
+    if (!review) {
+      return res.status(404).json({ error: "Review not found" });
+    }
+
+    if (review.userId.toString() !== userId) {
+      return res.status(401).json({ error: "Review does not correspond to user" });
+    }
+
+    res.status(200).json(review);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: error.message });
@@ -36,7 +54,29 @@ exports.getReview = async (req, res) => {
 
 exports.saveReview = async (req, res) => {
   try {
-    res.status(200).json({ msg: "Review saved" });
+    const { title, code, summary, structure, accessibility, scalability } = req.body;
+    const userId = req.user.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(401).json({ error: "User not found" });
+    }
+
+    if (!title || !code || !summary || !structure || !accessibility || !scalability) {
+      return res.status(401).json({ error: "All inputs are required" });
+    }
+
+    const review = await Review.create({
+      userId,
+      title,
+      code,
+      summary,
+      structure,
+      accessibility,
+      scalability,
+    });
+
+    res.status(200).json(review);
   } catch (error) {
     console.error(error.message);
     res.status(500).json({ error: error.message });
@@ -45,6 +85,26 @@ exports.saveReview = async (req, res) => {
 
 exports.deleteReview = async (req, res) => {
   try {
+    const userId = req.user.id;
+    const reviewId = req.params.id;
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(401).json({ error: "User not authrised" });
+    }
+
+    const review = await Review.findById(reviewId);
+
+    if (!review) {
+      return res.status(404).json({ error: "Review not found" });
+    }
+
+    if (review.userId.toString() !== userId) {
+      return res.status(401).json({ error: "Review does not correspond to user" });
+    }
+
+    await review.deleteOne();
+
     res.status(200).json({ msg: "Review deleted" });
   } catch (error) {
     console.error(error.message);
