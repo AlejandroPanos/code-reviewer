@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 /* Create schema */
-// TODO: Modify schema to fit the actual AI review (structure, accessibility & scalability)
 const reviewSchema = new Schema(
   {
     userId: {
