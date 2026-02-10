@@ -35,7 +35,23 @@ const reviewSchema = new Schema(
         min: 0,
         max: 100,
       },
-      feedback: String,
+      feedback: [
+        {
+          title: {
+            type: String,
+            required: true,
+          },
+          description: {
+            type: String,
+            required: true,
+          },
+          severity: {
+            type: String,
+            enum: ["passed", "info", "warning", "critical"],
+            default: "info",
+          },
+        },
+      ],
     },
     accessibility: {
       score: {
@@ -43,7 +59,23 @@ const reviewSchema = new Schema(
         min: 0,
         max: 100,
       },
-      feedback: String,
+      feedback: [
+        {
+          title: {
+            type: String,
+            required: true,
+          },
+          description: {
+            type: String,
+            required: true,
+          },
+          severity: {
+            type: String,
+            enum: ["passed", "info", "warning", "critical"],
+            default: "info",
+          },
+        },
+      ],
     },
     scalability: {
       score: {
@@ -51,7 +83,23 @@ const reviewSchema = new Schema(
         min: 0,
         max: 100,
       },
-      feedback: String,
+      feedback: [
+        {
+          title: {
+            type: String,
+            required: true,
+          },
+          description: {
+            type: String,
+            required: true,
+          },
+          severity: {
+            type: String,
+            enum: ["passed", "info", "warning", "critical"],
+            default: "info",
+          },
+        },
+      ],
     },
   },
   { timestamps: true },
