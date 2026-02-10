@@ -53,6 +53,30 @@ const reviewSchema = new Schema(
         },
       ],
     },
+    security: {
+      score: {
+        type: Number,
+        min: 0,
+        max: 100,
+      },
+      feedback: [
+        {
+          title: {
+            type: String,
+            required: true,
+          },
+          description: {
+            type: String,
+            required: true,
+          },
+          severity: {
+            type: String,
+            enum: ["passed", "info", "warning", "critical"],
+            default: "info",
+          },
+        },
+      ],
+    },
     accessibility: {
       score: {
         type: Number,
