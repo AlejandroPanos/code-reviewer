@@ -8,7 +8,7 @@ const reviewSchema = new Schema(
   {
     userId: {
       type: Schema.Types.ObjectId,
-      ref: "user",
+      ref: "User",
       required: true,
     },
     title: {
@@ -19,13 +19,44 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
     },
-    aiSummary: {
-      type: String,
-      required: true,
+    summary: {
+      totalScore: {
+        type: Number,
+        min: 0,
+        max: 100,
+      },
+      text: {
+        type: String,
+        required: true,
+      },
+    },
+    structure: {
+      score: {
+        type: Number,
+        min: 0,
+        max: 100,
+      },
+      feedback: String,
+    },
+    accessibility: {
+      score: {
+        type: Number,
+        min: 0,
+        max: 100,
+      },
+      feedback: String,
+    },
+    scalability: {
+      score: {
+        type: Number,
+        min: 0,
+        max: 0,
+      },
+      feedback: String,
     },
   },
   { timestamps: true },
 );
 
 /* Create export */
-module.exports = mongoose.model("review", reviewSchema);
+module.exports = mongoose.model("Review", reviewSchema);
