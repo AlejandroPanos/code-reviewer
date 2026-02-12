@@ -8,13 +8,12 @@ const PrivateLayout = () => {
       <SidebarProvider>
         <Aside />
 
-        <div className="flex-1 flex flex-col">
-          <header className="border-b p-4 flex items-center gap-4">
+        <div className="flex-1 flex flex-col h-screen overflow-hidden">
+          <header className="border-b p-4 flex items-center gap-4 shrink-0">
             <SidebarTrigger />
             <h1 className="text-xl font-semibold">Dashboard</h1>
           </header>
-
-          <main className="flex-1 p-6">
+          <main className="flex-1 p-6 overflow-hidden">
             <Outlet />
           </main>
         </div>
