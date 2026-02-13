@@ -18,10 +18,10 @@ const Login = () => {
     onSuccess: (data) => {
       dispatch({ type: "REGISTER", payload: data });
       navigate("/dashboard");
-      toast.success("User logged correctly", { position: "top-center" });
+      toast.success("User logged correctly", { position: "top-right" });
     },
     onError: (error) => {
-      toast.error(error.message, { position: "top-center" });
+      toast.error(error.message, { position: "top-right" });
     },
   });
 

@@ -18,10 +18,10 @@ const Register = () => {
     onSuccess: (data) => {
       dispatch({ type: "REGISTER", payload: data });
       navigate("/dashboard");
-      toast.success("User registered correctly", { position: "top-center" });
+      toast.success("User registered correctly", { position: "top-right" });
     },
     onError: (error) => {
-      toast.error(error.message, { position: "top-center" });
+      toast.error(error.message, { position: "top-right" });
     },
   });
 

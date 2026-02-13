@@ -36,3 +36,8 @@ export const logout = async () => {
   const response = await axios.post("/api/auth/logout");
   return response.data;
 };
+
+export const getReviews = async () => {
+  const response = await axios.get("/api/reviews");
+  return response.data;
+};

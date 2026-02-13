@@ -36,10 +36,10 @@ const Aside = () => {
     onSuccess: () => {
       dispatch({ type: "LOGOUT" });
       navigate("/");
-      toast.success("Logged out correctly", { position: "top-center" });
+      toast.success("Logged out correctly", { position: "top-right" });
     },
     onError: (error) => {
-      toast.error(error.message, { position: "top-center" });
+      toast.error(error.message, { position: "top-right" });
     },
   });
 
