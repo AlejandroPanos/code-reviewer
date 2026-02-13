@@ -12,6 +12,8 @@ import PrivateLayout from "./layouts/PrivateLayout";
 
 /* Public Pages */
 import Site from "./pages/public/Site";
+import Register from "./components/public/Register/Register";
+import Login from "./components/public/Login/Login";
 
 /* Private Pages */
 import Dashboard from "./pages/private/Dashboard";
@@ -32,6 +34,22 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/register",
+    element: (
+      <PublicRoute>
+        <Register />
+      </PublicRoute>
+    ),
+  },
+  {
+    path: "/login",
+    element: (
+      <PublicRoute>
+        <Login />
+      </PublicRoute>
+    ),
   },
   {
     path: "/",
