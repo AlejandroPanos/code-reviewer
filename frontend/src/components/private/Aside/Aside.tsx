@@ -59,7 +59,7 @@ const Aside = () => {
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link to="/dashboard">
+                  <Link to="/reviews">
                     <FileText className="w-4 h-4" />
                     <span>Reviews</span>
                   </Link>
@@ -67,7 +67,7 @@ const Aside = () => {
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
-                  <Link to="/dashboard">
+                  <Link to="/profile">
                     <Users className="w-4 h-4" />
                     <span>Profile</span>
                   </Link>
