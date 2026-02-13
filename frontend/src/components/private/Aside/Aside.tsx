@@ -20,7 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LayoutDashboard, Users, Settings, FileText, ChevronsUpDown, LogOut } from "lucide-react";
+import { LayoutDashboard, Users, FileText, ChevronsUpDown, LogOut } from "lucide-react";
 
 const Aside = () => {
   return (
@@ -70,22 +70,6 @@ const Aside = () => {
                   <Link to="/profile">
                     <Users className="w-4 h-4" />
                     <span>Profile</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarGroup>
-          <SidebarGroupLabel>Settings</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <Link to="/dashboard">
-                    <Settings className="w-4 h-4" />
-                    <span>Settings</span>
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>

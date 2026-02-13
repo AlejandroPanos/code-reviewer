@@ -17,7 +17,7 @@ const CodeBlock = () => {
           fontFamily: '"Fira code", "Fira Mono", monospace',
         }}
       />
-      <Button variant="teal" type="submit" className="w-full hover:cursor-pointer">
+      <Button variant="outline" type="submit" className="w-full hover:cursor-pointer">
         Review Code
         <ArrowRight className="w-4 h-4" />
       </Button>

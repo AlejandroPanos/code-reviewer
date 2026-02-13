@@ -2,6 +2,10 @@ import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
 // import { lazy, Suspense } from "react";
 
+/* Always needed */
+import PublicRoute from "./components/routes/PublicRoute";
+import PrivateRoute from "./components/routes/PrivateRoute";
+
 /* Layouts */
 import PublicLayout from "./layouts/PublicLayout";
 import PrivateLayout from "./layouts/PrivateLayout";
@@ -18,15 +22,45 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <PublicLayout />,
-    children: [{ index: true, element: <Site /> }],
+    children: [
+      {
+        index: true,
+        element: (
+          <PublicRoute>
+            <Site />
+          </PublicRoute>
+        ),
+      },
+    ],
   },
   {
     path: "/",
     element: <PrivateLayout />,
     children: [
-      { path: "dashboard", element: <Dashboard /> },
-      { path: "reviews", element: <Reviews /> },
-      { path: "profile", element: <Profile /> },
+      {
+        path: "dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "reviews",
+        element: (
+          <PrivateRoute>
+            <Reviews />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "profile",
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
 ]);
