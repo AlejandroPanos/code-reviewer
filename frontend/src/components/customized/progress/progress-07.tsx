@@ -14,6 +14,7 @@ interface CircularProgressProps {
   progressClassName?: string;
   labelClassName?: string;
   showLabel?: boolean;
+  status: string;
 }
 
 const CircularProgress = ({
@@ -28,12 +29,25 @@ const CircularProgress = ({
   strokeWidth,
   circleStrokeWidth = 10,
   progressStrokeWidth = 10,
+  status = "info",
 }: CircularProgressProps) => {
   const radius = size / 2 - 10;
   const circumference = Math.ceil(3.14 * radius * 2);
   const percentage = Math.ceil(circumference * ((100 - value) / 100));
 
   const viewBox = `-${size * 0.125} -${size * 0.125} ${size * 1.25} ${size * 1.25}`;
+
+  let highlight = "";
+
+  if (status === "info") {
+    highlight = "stroke-blue-500";
+  } else if (status === "success") {
+    highlight = "stroke-emerald-400";
+  } else if (status === "warning") {
+    highlight = "stroke-amber-500";
+  } else {
+    highlight = "stroke-red-600";
+  }
 
   return (
     <div className="relative">
@@ -60,7 +74,7 @@ const CircularProgress = ({
 
         {/* Progress */}
         <circle
-          className={cn("stroke-primary", progressClassName)}
+          className={cn(highlight, progressClassName)}
           cx={size / 2}
           cy={size / 2}
           fill="transparent"

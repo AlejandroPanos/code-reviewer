@@ -30,6 +30,7 @@ const Review = () => {
             size={parseInt(`${100} lg:${80}`)}
             strokeWidth={8}
             value={25}
+            status="critical"
           />
         </div>
         <div className="col-span-1 md:col-span-3 flex flex-col items-start gap-4">
