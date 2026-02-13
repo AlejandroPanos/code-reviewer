@@ -18,10 +18,10 @@ const Register = () => {
     onSuccess: (data) => {
       dispatch({ type: "REGISTER", payload: data });
       navigate("/dashboard");
-      toast.success("User registered correctly");
+      toast.success("User registered correctly", { position: "top-center" });
     },
     onError: (error) => {
-      toast.error(error.message);
+      toast.error(error.message, { position: "top-center" });
     },
   });
 
@@ -84,8 +84,8 @@ const Register = () => {
                 </div>
               </div>
               <div className="flex flex-col items-start gap-1 mt-4">
-                <Button type="submit" className="w-full">
-                  Register
+                <Button disabled={registerMutation.isPending} type="submit" className="w-full">
+                  {registerMutation.isPending ? "Creating your account..." : "Register"}
                 </Button>
                 <p className="text-xs text-neutral-400">
                   Already have an account?{" "}

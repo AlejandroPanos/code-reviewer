@@ -18,10 +18,10 @@ const Login = () => {
     onSuccess: (data) => {
       dispatch({ type: "REGISTER", payload: data });
       navigate("/dashboard");
-      toast.success("User logged correctly");
+      toast.success("User logged correctly", { position: "top-center" });
     },
     onError: (error) => {
-      toast.error(error.message);
+      toast.error(error.message, { position: "top-center" });
     },
   });
 
@@ -74,8 +74,8 @@ const Login = () => {
                 </div>
               </div>
               <div className="flex flex-col items-start gap-1 mt-4">
-                <Button type="submit" className="w-full">
-                  Login
+                <Button disabled={loginMutation.isPending} type="submit" className="w-full">
+                  {loginMutation.isPending ? "Loggin you in..." : "Log In"}
                 </Button>
                 <p className="text-xs text-neutral-400">
                   Don't have an account yet?{" "}
