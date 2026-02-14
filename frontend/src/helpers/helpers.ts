@@ -1,4 +1,5 @@
 /* Import and config axios */
+import type { ReviewType } from "@/types/types";
 import axios from "axios";
 
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
@@ -49,7 +50,8 @@ export const generateReview = async (code: string) => {
   return response.data;
 };
 
-export const saveReview = async (review: string) => {
+export const saveReview = async (review: ReviewType) => {
+  console.log(review);
   const response = await axios.post("/api/reviews", review);
   return response.data;
 };

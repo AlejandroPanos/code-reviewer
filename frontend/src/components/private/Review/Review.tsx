@@ -21,31 +21,10 @@ import {
   Loader2,
   FileText,
 } from "lucide-react";
-
-type Severity = "passed" | "info" | "warning" | "critical";
-
-interface Feedback {
-  title: string;
-  description: string;
-  severity: Severity;
-}
-
-interface CategoryScore {
-  score: number;
-  feedback: Feedback[];
-}
+import type { ReviewType } from "@/types/types";
 
 interface ReviewProps {
-  review?: {
-    summary: {
-      totalScore: number;
-      text: string;
-    };
-    structure: CategoryScore;
-    security: CategoryScore;
-    accessibility: CategoryScore;
-    scalability: CategoryScore;
-  };
+  review?: ReviewType;
   pending: boolean;
 }
 

@@ -54,7 +54,7 @@ exports.getReview = async (req, res) => {
 
 exports.saveReview = async (req, res) => {
   try {
-    const { title, code, summary, structure, accessibility, scalability } = req.body;
+    const { title, code, summary, structure, security, accessibility, scalability } = req.body;
     const userId = req.user.id;
     const user = await User.findById(userId);
 
@@ -62,7 +62,7 @@ exports.saveReview = async (req, res) => {
       return res.status(401).json({ error: "User not found" });
     }
 
-    if (!title || !code || !summary || !structure || !accessibility || !scalability) {
+    if (!title || !code || !summary || !structure || !security || !accessibility || !scalability) {
       return res.status(401).json({ error: "All inputs are required" });
     }
 
@@ -72,6 +72,7 @@ exports.saveReview = async (req, res) => {
       code,
       summary,
       structure,
+      security,
       accessibility,
       scalability,
     });
