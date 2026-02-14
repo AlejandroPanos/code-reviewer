@@ -8,14 +8,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { format } from "date-fns";
+import { useNavigate } from "react-router";
 
 interface ReviewCardProps {
+  id: string;
   title: string;
   date: string;
   code: string;
 }
 
-const ReviewCard = ({ title, date, code }: ReviewCardProps) => {
+const ReviewCard = ({ id, title, date, code }: ReviewCardProps) => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/reviews/${id}`);
+  };
+
   return (
     <>
       <Card className="mx-auto w-full">
@@ -27,7 +35,12 @@ const ReviewCard = ({ title, date, code }: ReviewCardProps) => {
           <p className="text-neutral-400 text-xs">{code}</p>
         </CardContent>
         <CardFooter>
-          <Button variant="outline" size="sm" className="w-full hover:cursor-pointer">
+          <Button
+            onClick={handleViewDetails}
+            variant="outline"
+            size="sm"
+            className="w-full hover:cursor-pointer"
+          >
             View Review
           </Button>
         </CardFooter>

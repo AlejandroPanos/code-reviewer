@@ -39,9 +39,13 @@ export const logout = async () => {
 };
 
 /* Reviews */
-
 export const getReviews = async () => {
   const response = await axios.get("/api/reviews");
+  return response.data;
+};
+
+export const getReview = async (id: string) => {
+  const response = await axios.get(`/api/reviews/${id}`);
   return response.data;
 };
 
@@ -51,7 +55,6 @@ export const generateReview = async (code: string) => {
 };
 
 export const saveReview = async (review: ReviewType) => {
-  console.log(review);
   const response = await axios.post("/api/reviews", review);
   return response.data;
 };

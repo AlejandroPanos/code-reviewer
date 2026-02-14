@@ -86,7 +86,9 @@ const ReviewGrid = () => {
           </p>
         ) : (
           reviewsQuery.data?.map((r: UserReview) => {
-            return <ReviewCard key={r._id} title={r.title} date={r.createdAt} code={r.code} />;
+            return (
+              <ReviewCard key={r._id} id={r._id} title={r.title} date={r.createdAt} code={r.code} />
+            );
           })
         )}
       </div>

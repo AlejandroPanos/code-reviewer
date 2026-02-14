@@ -19,6 +19,7 @@ import Login from "./components/public/Login/Login";
 import Dashboard from "./pages/private/Dashboard";
 import Reviews from "./pages/private/Reviews";
 import Profile from "./pages/private/Profile";
+import ReviewDetail from "./pages/private/ReviewDetail";
 
 const router = createBrowserRouter([
   {
@@ -68,6 +69,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <Reviews />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "reviews/:id",
+        element: (
+          <PrivateRoute>
+            <ReviewDetail />
           </PrivateRoute>
         ),
       },
