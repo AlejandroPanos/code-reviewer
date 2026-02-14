@@ -15,11 +15,11 @@ const ProfileForm = () => {
         <form className="w-full flex flex-col lg:flex-row items-start justify-between gap-4">
           <Field>
             <FieldLabel htmlFor="username">Username</FieldLabel>
-            <Input id="username" type="text" value={user?.name} />
+            <Input id="username" type="text" defaultValue={user?.name} />
           </Field>
           <Field>
             <FieldLabel htmlFor="email">Email</FieldLabel>
-            <Input id="email" type="email" value={user?.email} />
+            <Input id="email" type="email" defaultValue={user?.email} />
           </Field>
           <Field>
             <FieldLabel htmlFor="password">Password</FieldLabel>

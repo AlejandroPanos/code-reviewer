@@ -58,3 +58,8 @@ export const saveReview = async (review: ReviewType) => {
   const response = await axios.post("/api/reviews", review);
   return response.data;
 };
+
+export const deleteReview = async (id: string) => {
+  const response = await axios.delete(`/api/reviews/${id}`);
+  return response.data;
+};
