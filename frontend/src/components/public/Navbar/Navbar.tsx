@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const Navbar = () => {
   return (
     <>
-      <nav className="h-18 relative w-full px-6 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between z-30 bg-linear-to-r from-indigo-700 to-violet-500 transition-all">
+      <nav className="fixed top-0 left-0 h-18 w-full px-6 md:px-16 lg:px-24 xl:px-32 flex items-center justify-between z-30 bg-neutral-950/20 backdrop-blur-lg border-b border-neutral-800 transition-all">
         <a href="https://prebuiltui.com">
           <svg
             width="157"
@@ -52,13 +52,13 @@ const Navbar = () => {
         <div className="flex items-center gap-2">
           <Link
             to="/login"
-            className="px-4 py-2 border border-white rounded-md hover:cursor-pointer"
+            className="md:inline hidden px-4 py-2 border border-white rounded-md hover:cursor-pointer"
           >
             Log In
           </Link>
           <Link
             to="/register"
-            className="px-4 py-2 border border-white rounded-md hover:cursor-pointer"
+            className="md:inline hidden px-4 py-2 border border-white rounded-md hover:cursor-pointer"
           >
             Register
           </Link>

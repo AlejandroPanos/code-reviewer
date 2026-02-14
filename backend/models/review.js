@@ -267,7 +267,8 @@ reviewSchema.statics.createReview = async function (code) {
     temperature: 0.6,
   });
 
-  return message.content[0].text;
+  const reviewData = JSON.parse(message.content[0].text);
+  return reviewData;
 };
 
 /* Create export */
