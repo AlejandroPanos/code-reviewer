@@ -35,6 +35,7 @@ const Dashboard = () => {
         handleSubmit={handleSubmit}
         code={code}
         setCode={setCode}
+        review={reviewMutation.data}
         pending={reviewMutation.isPending}
       />
       <Review

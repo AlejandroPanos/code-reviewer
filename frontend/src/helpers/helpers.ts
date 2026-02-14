@@ -48,3 +48,8 @@ export const generateReview = async (code: string) => {
   const response = await axios.post("/api/ai", { code });
   return response.data;
 };
+
+export const saveReview = async (review: string) => {
+  const response = await axios.post("/api/reviews", review);
+  return response.data;
+};
