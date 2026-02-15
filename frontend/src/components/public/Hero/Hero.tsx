@@ -24,7 +24,9 @@ export default function Hero() {
         </p>
         <div className="mt-12 flex items-center justify-center gap-4">
           <Button className="rounded-full text-base" size="lg">
-            Get Started <ArrowUpRight className="h-5! w-5!" />
+            <Link className="flex items-center gap-2" to="/register">
+              Get Started <ArrowUpRight className="h-5! w-5!" />
+            </Link>
           </Button>
           <Button className="rounded-full text-base shadow-none" size="lg" variant="outline">
             <CirclePlay className="h-5! w-5!" /> Watch Demo
