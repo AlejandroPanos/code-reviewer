@@ -9,6 +9,7 @@ router.post("/register", authControllers.register);
 router.post("/login", authControllers.login);
 router.post("/logout", requireAuth, authControllers.logout);
 router.get("/profile", requireAuth, authControllers.currentProfile);
+router.post("/profile", requireAuth, authControllers.updateProfile);
 
 /* Create exports */
 module.exports = router;
