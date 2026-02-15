@@ -3,36 +3,39 @@ import { Blocks, Bot, ChartPie, Film, MessageCircle, Settings2 } from "lucide-re
 const features = [
   {
     icon: Settings2,
-    title: "Customizable Layouts",
+    title: "Any Language",
     description:
-      "Design your space with drag-and-drop simplicity—create grids, lists, or galleries in seconds.",
-  },
-  {
-    icon: Blocks,
-    title: "Interactive Widgets",
-    description: "Embed polls, quizzes, or forms to keep your audience engaged.",
+      "Paste your code no matter what language is written in and get detailed feedback on it in seconds.",
   },
   {
     icon: Bot,
-    title: "AI-Powered Tools",
+    title: "AI-Powered",
     description:
-      "Generate summaries, auto-format content, or translate into multiple languages seamlessly.",
+      "Our trained AI model will spit back the best feedback on 4 categories so you can write better & safer code.",
+  },
+  {
+    icon: Blocks,
+    title: "Scalable",
+    description:
+      "Our tool scales with you. Start completely for free with 5 reviews per day and upgrade as you go.",
   },
   {
     icon: Film,
-    title: "Media Integrations",
+    title: "Check History",
     description:
-      "Connect with Spotify, Instagram, or your own media library for dynamic visuals and sound.",
+      "Check your review history to make sure you are not repeting the same mistakes in your code over and over.",
   },
   {
     icon: ChartPie,
-    title: "Advanced Analytics",
-    description: "Track engagement, clicks, and user activity with intuitive charts and reports.",
+    title: "Advanced Scoring",
+    description:
+      "Get a score on every single code review that you make so you know exactly where you are falling short.",
   },
   {
     icon: MessageCircle,
-    title: "Seamless Collaboration",
-    description: "Comment, tag, and assign tasks directly within your documents.",
+    title: "Premium Support",
+    description:
+      "If you have any questions, feedback or encounter any bugs, we are there to help you no matter what.",
   },
 ];
 
@@ -41,7 +44,7 @@ const Features = () => {
     <section id="features" className="flex min-h-screen items-center justify-center py-12">
       <div>
         <h2 className="text-center font-semibold text-4xl tracking-tight sm:text-5xl">
-          Unleash Your Creativity
+          Better Code – In Seconds
         </h2>
         <div className="mx-auto mt-10 grid max-w-(--breakpoint-lg) gap-6 px-6 sm:mt-16 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => (

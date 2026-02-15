@@ -1,5 +1,5 @@
 import { StarIcon } from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const testimonials = [
   {
@@ -84,6 +84,7 @@ const Testimonials = () => (
               </p>
               <div className="mt-auto flex items-center justify-center gap-3">
                 <Avatar className="size-9">
+                  <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
                   <AvatarFallback className="bg-primary font-medium text-primary-foreground text-xl">
                     {testimonial.name.charAt(0)}
                   </AvatarFallback>
