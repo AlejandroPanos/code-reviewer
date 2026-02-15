@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <>
-      <main className="w-full h-screen flex items-center justify-center">
+      <main className="w-full h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle>Login to your account</CardTitle>

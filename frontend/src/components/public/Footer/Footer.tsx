@@ -1,31 +1,23 @@
-import { DribbbleIcon, GithubIcon, TwitchIcon, TwitterIcon } from "lucide-react";
+import { GithubIcon, Linkedin, Youtube } from "lucide-react";
 import { Link } from "react-router";
 import { Separator } from "@/components/ui/separator";
 
 const footerLinks = [
   {
-    title: "Overview",
-    href: "#",
+    title: "Home",
+    href: "#home",
   },
   {
     title: "Features",
-    href: "#",
+    href: "#features",
   },
   {
-    title: "Pricing",
-    href: "#",
+    title: "Testimonials",
+    href: "#testimonials",
   },
   {
-    title: "Careers",
-    href: "#",
-  },
-  {
-    title: "Help",
-    href: "#",
-  },
-  {
-    title: "Privacy",
-    href: "#",
+    title: "Get Started",
+    href: "/register",
   },
 ];
 
@@ -57,9 +49,9 @@ const Footer = () => {
             <ul className="mt-6 flex flex-wrap items-center gap-4">
               {footerLinks.map(({ title, href }) => (
                 <li key={title}>
-                  <Link className="text-muted-foreground hover:text-foreground" to={href}>
+                  <a className="text-muted-foreground hover:text-foreground" href={href}>
                     {title}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -69,25 +61,22 @@ const Footer = () => {
             {/* Copyright */}
             <span className="text-muted-foreground">
               &copy; {new Date().getFullYear()}{" "}
-              <Link to="/" target="_blank">
-                Shadcn UI Blocks
+              <Link to="https://www.linkedin.com/in/alejandropanosjimenez/" target="_blank">
+                Alejandro Paños
               </Link>
               . All rights reserved.
             </span>
 
             <div className="flex items-center gap-5 text-muted-foreground">
-              <Link to="#" target="_blank">
-                <TwitterIcon className="h-5 w-5" />
-              </Link>
-              <Link to="#" target="_blank">
-                <DribbbleIcon className="h-5 w-5" />
-              </Link>
-              <Link to="#" target="_blank">
-                <TwitchIcon className="h-5 w-5" />
-              </Link>
-              <Link to="#" target="_blank">
+              <a href="https://github.com/AlejandroPanos" target="_blank">
                 <GithubIcon className="h-5 w-5" />
-              </Link>
+              </a>
+              <a href="https://www.linkedin.com/in/alejandropanosjimenez/" target="_blank">
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="https://www.youtube.com/@alejandropanos" target="_blank">
+                <Youtube className="h-5 w-5" />
+              </a>
             </div>
           </div>
         </div>

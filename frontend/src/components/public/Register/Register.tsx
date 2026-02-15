@@ -43,7 +43,7 @@ const Register = () => {
 
   return (
     <>
-      <main className="w-full h-screen flex items-center justify-center">
+      <main className="w-full h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle>Create your account</CardTitle>

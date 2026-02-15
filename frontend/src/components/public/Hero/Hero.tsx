@@ -11,7 +11,7 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-3xl text-center">
         <Badge asChild className="rounded-full border-border py-1" variant="secondary">
-          <Link to="/">
+          <Link to="/register">
             Just released v1.0.0 <ArrowUpRight className="ml-1 size-4" />
           </Link>
         </Badge>
