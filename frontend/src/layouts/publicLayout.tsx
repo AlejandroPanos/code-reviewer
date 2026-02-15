@@ -23,7 +23,7 @@ const PublicLayout = () => {
         />
       </div>
       <Navbar />
-      <main className="mt-32">
+      <main>
         <div className="max-w-300 mx-auto px-8">
           <Outlet />
         </div>

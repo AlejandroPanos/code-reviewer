@@ -1,7 +1,11 @@
+import Hero from "@/components/public/Hero/Hero";
+
 const Site = () => {
   return (
     <>
-      <h1>Main Site</h1>
+      <div className="flex flex-col items-center gap-24">
+        <Hero />
+      </div>
     </>
   );
 };
