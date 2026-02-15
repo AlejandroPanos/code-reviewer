@@ -23,13 +23,13 @@ export default function Hero() {
           Streamline your development workflow with easy-to-implement examples.
         </p>
         <div className="mt-12 flex items-center justify-center gap-4">
-          <Button className="rounded-full text-base" size="lg">
-            <Link className="flex items-center gap-2" to="/register">
-              Get Started <ArrowUpRight className="h-5! w-5!" />
+          <Button asChild className="rounded-full text-base" size="lg">
+            <Link to="/register">
+              Get Started <ArrowUpRight className="h-5 w-5" />
             </Link>
           </Button>
           <Button className="rounded-full text-base shadow-none" size="lg" variant="outline">
-            <CirclePlay className="h-5! w-5!" /> Watch Demo
+            <CirclePlay className="h-5 w-5" /> Watch Demo
           </Button>
         </div>
       </div>
