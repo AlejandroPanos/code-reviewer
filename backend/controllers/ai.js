@@ -1,6 +1,7 @@
 /* Create imports */
 const User = require("../models/user");
 const Review = require("../models/review");
+const { getTodayUTC } = require("../helpers/dateHelpers");
 
 /* Create controllers */
 exports.generateReview = async (req, res) => {
@@ -13,11 +14,21 @@ exports.generateReview = async (req, res) => {
       return res.status(401).json({ error: "User not authorised" });
     }
 
+    const todayUTC = getTodayUTC();
+
+    if (user.lastResetDate !== todayUTC) {
+      user.dailyReviewsGenerated = 0;
+      user.lastResetDate = todayUTC;
+    }
+
     if (user.dailyReviewsGenerated >= 5) {
       return res.status(401).json({ error: "Daily limit reached. Please wait until tomorrow." });
     }
 
     const review = await Review.createReview(code);
+
+    user.dailyReviewsGenerated += 1;
+    await user.save();
 
     res.status(200).json(review);
   } catch (error) {

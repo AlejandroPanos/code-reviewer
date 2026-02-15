@@ -31,7 +31,7 @@ const userSchema = new Schema(
     },
     lastResetDate: {
       type: Date,
-      default: Date.now(),
+      default: null,
     },
   },
   { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } },

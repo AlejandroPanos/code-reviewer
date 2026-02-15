@@ -1,4 +1,4 @@
-/* Create helpers */
+/* Create imports */
 const jwt = require("jsonwebtoken");
 
 /* Create helpers */
