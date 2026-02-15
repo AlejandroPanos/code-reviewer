@@ -17,9 +17,20 @@ interface UserLogin {
   password: string;
 }
 
+interface UpdatedUser {
+  name?: string;
+  email?: string;
+  password?: string;
+}
+
 /* Create helpers */
 export const checkAuth = async () => {
   const response = await axios.get("/api/auth/profile");
+  return response.data;
+};
+
+export const updateProfile = async (user: UpdatedUser) => {
+  const response = await axios.post("/api/auth/profile", user);
   return response.data;
 };
 
