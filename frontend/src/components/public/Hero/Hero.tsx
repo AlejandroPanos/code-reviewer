@@ -6,7 +6,7 @@ import { BackgroundPattern } from "@/components/background-pattern";
 
 export default function Hero() {
   return (
-    <div className="flex min-h-screen items-center justify-center px-6">
+    <section id="home" className="flex min-h-screen items-center justify-center px-6">
       <BackgroundPattern />
 
       <div className="relative z-10 max-w-3xl text-center">
@@ -33,6 +33,6 @@ export default function Hero() {
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

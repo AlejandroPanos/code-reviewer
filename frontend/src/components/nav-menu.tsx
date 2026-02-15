@@ -1,6 +1,5 @@
 "use client";
 
-import { Link } from "react-router";
 import type { ComponentProps } from "react";
 import {
   NavigationMenu,
@@ -15,22 +14,17 @@ export const NavMenu = (props: ComponentProps<typeof NavigationMenu>) => (
     <NavigationMenuList className="data-[orientation=vertical]:-ms-2 data-[orientation=vertical]:flex-col data-[orientation=vertical]:items-start data-[orientation=vertical]:justify-start">
       <NavigationMenuItem>
         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-          <Link to="#">Home</Link>
+          <a href="#home">Home</a>
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-          <Link to="#">Blog</Link>
+          <a href="#features">Features</a>
         </NavigationMenuLink>
       </NavigationMenuItem>
       <NavigationMenuItem>
         <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-          <Link to="#">About</Link>
-        </NavigationMenuLink>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
-          <Link to="#">Contact Us</Link>
+          <a href="#testimonials">Testimonials</a>
         </NavigationMenuLink>
       </NavigationMenuItem>
     </NavigationMenuList>

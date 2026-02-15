@@ -59,7 +59,7 @@ const testimonials = [
 ];
 
 const Testimonials = () => (
-  <div className="flex min-h-screen items-center justify-center px-6 py-12">
+  <section id="testimonials" className="flex min-h-screen items-center justify-center px-6 py-12">
     <div>
       <h2 className="text-center font-semibold text-5xl tracking-[-0.03em]">Loved by Developers</h2>
       <p className="mt-3 text-center text-muted-foreground text-xl">
@@ -98,7 +98,7 @@ const Testimonials = () => (
         </div>
       </div>
     </div>
-  </div>
+  </section>
 );
 
 export default Testimonials;

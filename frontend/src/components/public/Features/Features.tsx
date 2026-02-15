@@ -38,7 +38,7 @@ const features = [
 
 const Features = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center py-12">
+    <section id="features" className="flex min-h-screen items-center justify-center py-12">
       <div>
         <h2 className="text-center font-semibold text-4xl tracking-tight sm:text-5xl">
           Unleash Your Creativity
@@ -55,7 +55,7 @@ const Features = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
