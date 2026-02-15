@@ -1,25 +1,27 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router";
-// import { lazy, Suspense } from "react";
+import type { ReactNode } from "react";
+import { lazy, Suspense } from "react";
 
 /* Always needed */
 import PublicRoute from "./components/routes/PublicRoute";
 import PrivateRoute from "./components/routes/PrivateRoute";
-
-/* Layouts */
 import PublicLayout from "./layouts/PublicLayout";
 import PrivateLayout from "./layouts/PrivateLayout";
+import Loading from "./components/state/Loading/Loading";
 
-/* Public Pages */
-import Site from "./pages/public/Site";
-import Register from "./components/public/Register/Register";
-import Login from "./components/public/Login/Login";
+/* Lazy Loading */
+const Site = lazy(() => import("./pages/public/Site"));
+const Register = lazy(() => import("./components/public/Register/Register"));
+const Login = lazy(() => import("./components/public/Login/Login"));
+const Dashboard = lazy(() => import("./pages/private/Dashboard"));
+const Reviews = lazy(() => import("./pages/private/Reviews"));
+const Profile = lazy(() => import("./pages/private/Profile"));
+const ReviewDetail = lazy(() => import("./pages/private/ReviewDetail"));
 
-/* Private Pages */
-import Dashboard from "./pages/private/Dashboard";
-import Reviews from "./pages/private/Reviews";
-import Profile from "./pages/private/Profile";
-import ReviewDetail from "./pages/private/ReviewDetail";
+const LazyPage = ({ children }: { children: ReactNode }) => {
+  return <Suspense fallback={<Loading message="Loading page" />}>{children}</Suspense>;
+};
 
 const router = createBrowserRouter([
   {
@@ -30,7 +32,9 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <PublicRoute>
-            <Site />
+            <LazyPage>
+              <Site />
+            </LazyPage>
           </PublicRoute>
         ),
       },
@@ -40,7 +44,9 @@ const router = createBrowserRouter([
     path: "/register",
     element: (
       <PublicRoute>
-        <Register />
+        <LazyPage>
+          <Register />
+        </LazyPage>
       </PublicRoute>
     ),
   },
@@ -48,7 +54,9 @@ const router = createBrowserRouter([
     path: "/login",
     element: (
       <PublicRoute>
-        <Login />
+        <LazyPage>
+          <Login />
+        </LazyPage>
       </PublicRoute>
     ),
   },
@@ -60,7 +68,9 @@ const router = createBrowserRouter([
         path: "dashboard",
         element: (
           <PrivateRoute>
-            <Dashboard />
+            <LazyPage>
+              <Dashboard />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
@@ -68,7 +78,9 @@ const router = createBrowserRouter([
         path: "reviews",
         element: (
           <PrivateRoute>
-            <Reviews />
+            <LazyPage>
+              <Reviews />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
@@ -76,7 +88,9 @@ const router = createBrowserRouter([
         path: "reviews/:id",
         element: (
           <PrivateRoute>
-            <ReviewDetail />
+            <LazyPage>
+              <ReviewDetail />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
@@ -84,7 +98,9 @@ const router = createBrowserRouter([
         path: "profile",
         element: (
           <PrivateRoute>
-            <Profile />
+            <LazyPage>
+              <Profile />
+            </LazyPage>
           </PrivateRoute>
         ),
       },
