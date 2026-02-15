@@ -61,8 +61,15 @@ export const getReview = async (id: string) => {
 };
 
 export const generateReview = async (code: string) => {
-  const response = await axios.post("/api/ai", { code });
-  return response.data;
+  try {
+    const response = await axios.post("/api/ai", { code });
+    return response.data;
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      throw new Error(error.response.data.error || "Failed to generate review");
+    }
+    throw new Error("Network error occurred");
+  }
 };
 
 export const saveReview = async (review: ReviewType) => {

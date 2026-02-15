@@ -6,6 +6,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
 import { format } from "date-fns";
+import { useAuth } from "@/hooks/useAuth";
 
 interface CodeBlockProps {
   handleSubmit: (event: React.SubmitEvent<HTMLFormElement>) => void;
@@ -17,6 +18,7 @@ interface CodeBlockProps {
 
 const CodeBlock = ({ handleSubmit, code, setCode, review, pending }: CodeBlockProps) => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const saveMutation = useMutation({
     mutationFn: saveReview,
@@ -58,7 +60,7 @@ const CodeBlock = ({ handleSubmit, code, setCode, review, pending }: CodeBlockPr
       />
       <div className="flex flex-col md:flex-row items-center gap-2">
         <Button
-          disabled={pending}
+          disabled={pending || user?.dailyReviewsGenerated! >= 5}
           variant="outline"
           type="submit"
           className="flex-1 w-full hover:cursor-pointer disabled:pointer-events-none"

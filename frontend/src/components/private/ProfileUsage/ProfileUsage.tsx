@@ -11,12 +11,12 @@ const ProfileUsage = () => {
         <Field className="w-full">
           <FieldLabel htmlFor="progress-upload" className="-mb-1 text-xs text-neutral-400">
             <span>Reviews generated today</span>
-            <span className="ml-auto">{user?.dailyReviewsGenerated}/10</span>
+            <span className="ml-auto">{user?.dailyReviewsGenerated}/5</span>
           </FieldLabel>
           <Progress
-            value={(user?.dailyReviewsGenerated! / 10) * 100}
+            value={(user?.dailyReviewsGenerated! / 5) * 100}
             id="progress-upload"
-            className="h-1.5 [&>div]:bg-blue-500"
+            className={`h-1.5 ${user?.dailyReviewsGenerated! >= 5 ? "[&>div]:bg-red-500" : "[&>div]:bg-blue-500"}`}
           />
         </Field>
         <p className="text-xs text-neutral-400">

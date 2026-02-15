@@ -13,6 +13,10 @@ exports.generateReview = async (req, res) => {
       return res.status(401).json({ error: "User not authorised" });
     }
 
+    if (user.dailyReviewsGenerated >= 5) {
+      return res.status(401).json({ error: "Daily limit reached. Please wait until tomorrow." });
+    }
+
     const review = await Review.createReview(code);
 
     res.status(200).json(review);
