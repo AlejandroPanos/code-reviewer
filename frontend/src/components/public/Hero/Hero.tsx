@@ -19,7 +19,7 @@ export default function Hero() {
           The Tool to Review any Code Snippet in Seconds
         </h1>
         <p className="mt-6 text-foreground/80 md:text-lg">
-          Review any code snippet within seconds. Our AI detects your coding langiage and spits back
+          Review any code snippet within seconds. Our AI detects your coding language and spits back
           highly personalised feedback on that specific block of code.
         </p>
         <div className="mt-12 flex items-center justify-center gap-4">
