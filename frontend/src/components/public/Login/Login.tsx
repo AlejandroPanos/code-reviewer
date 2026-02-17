@@ -46,8 +46,8 @@ const Login = () => {
       <main className="w-full h-screen flex items-center justify-center p-4">
         <Card className="w-full max-w-sm">
           <CardHeader>
-            <CardTitle>Login to your account</CardTitle>
-            <CardDescription>Enter your email below to login to your account</CardDescription>
+            <CardTitle>Log into your account</CardTitle>
+            <CardDescription>Enter your email below to log into your account</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit}>
