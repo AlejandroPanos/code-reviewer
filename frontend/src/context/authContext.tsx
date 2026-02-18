@@ -31,7 +31,7 @@ interface AuthContextTypes {
   dispatch: Dispatch<AuthAction>;
 }
 
-export const AuthContext = createContext<AuthContextTypes | undefined>(undefined);
+export const AuthContext = createContext<AuthContextTypes | null>(null);
 
 const reducer = (state: AuthState, action: AuthAction): AuthState => {
   switch (action.type) {
